@@ -14,8 +14,8 @@ function heuristic(a,b){
 
 
 
-var cols=25;
-var rows=25;
+var cols=5;
+var rows=5 ;
 var grid=new Array(cols);
 
 var openSet=[];
@@ -97,7 +97,7 @@ function setup() {
 
 function draw() {
 
-  if (openSet.length>0){
+  if  (openSet.length>0){
     // keep going
     var winner=0;
     for(var i=0;i<openSet.length;i++){
@@ -126,15 +126,15 @@ function draw() {
           if(tempG<neighbour.G){
             neighbour.g=tempG;
           }
-          else{
-            neighbour.g=tempG ;
-            openSet.push(neighbour);
-          }
-
-          neighbour.h=heuristic(neighbour,end);
-          neighbour.f=neighbour.g+neighbour.h;
-           neighbour.previous =current;
         }
+        else{
+          neighbour.g=tempG ;
+          openSet.push(neighbour);
+        }
+
+        neighbour.h=heuristic(neighbour,end);
+        neighbour.f=neighbour.g+neighbour.h;
+         neighbour.previous =current;
 
         
       }
